@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+  <title>The Grand Ascent – Timeless Elegance</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700;900&family=Inter:wght@300;400;500&family=Kapakana:wght@300..400&display=swap" rel="stylesheet" />
+
+  <style>
+    /* ───────────────────────────────────────
+       RESET & BASE
+    ─────────────────────────────────────── */
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --gold:        #c9a227;
+      --gold-light:  #e2ba4a;
+      --gold-dim:    #9e7d1c;
+      --green-deep:  #0a2318;
+      --green-mid:   #0e2e1e;
+      --green-card:  #0d2318;
+      --text-body:   #d4c07a;
+      --divider:     rgba(201,162,39,0.35);
+    }
+
+    html, body {
+      width: 100%;
+      min-height: 100vh;
+      background: var(--green-deep);
+      font-family: 'Inter', sans-serif;
+      color: var(--text-body);
+      overflow-x: hidden;
+    }
+
+    /* ───────────────────────────────────────
+       KAPAKANA – Google Fonts variable font
+    ─────────────────────────────────────── */
+    .kapakana {
+      font-family: 'Kapakana', cursive;
+      font-weight: 400;
+    }
+
+    /* ───────────────────────────────────────
+       PAGE WRAPPER
+    ─────────────────────────────────────── */
+    .page {
+      max-width: 480px;
+      margin: 0 auto;
+      position: relative;
+    }
+
+    /* ───────────────────────────────────────
+       HERO / HEADER
+    ─────────────────────────────────────── */
+    .hero {
+      position: relative;
+      width: 100%;
+      min-height: 340px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-end;
+      padding: 0 24px 32px;
+      overflow: hidden;
+    }
+
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(to bottom, rgba(10,35,24,0.15) 0%, rgba(10,35,24,0.55) 55%, rgba(10,35,24,1) 100%),
+        url("invite_bg.png") center / cover no-repeat;
+      z-index: 1;
+    }
+
+    /* dark vignette corners */
+    .hero-bg::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse at center, transparent 30%, rgba(10,35,24,0.6) 100%);
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      text-align: center;
+      width: 100%;
+    }
+
+    .dear-label {
+      font-size: clamp(4rem, 20vw, 9.375rem);
+      color: var(--gold-light);
+      line-height: 1;
+      display: block;
+      margin-bottom: 4px;
+      text-shadow: 0 2px 18px rgba(0,0,0,0.5);
+    }
+
+    .guest-name {
+      font-family: 'Cinzel Decorative', serif;
+      font-weight: 400;
+      font-size: clamp(2.8rem, 12vw, 5rem);
+      color: var(--gold-light);
+      letter-spacing: 0.04em;
+      line-height: 1.05;
+      text-transform: uppercase;
+      text-shadow: 0 4px 24px rgba(0,0,0,0.55);
+      word-break: break-word;
+    }
+
+    /* ───────────────────────────────────────
+       GOLD DIVIDER
+    ─────────────────────────────────────── */
+    .divider {
+      width: 85%;
+      max-width: 360px;
+      height: 1px;
+      background: linear-gradient(to right, transparent, var(--gold), transparent);
+      margin: 0 auto;
+    }
+
+    /* ───────────────────────────────────────
+       BODY SECTION
+    ─────────────────────────────────────── */
+    .body-section {
+      background: var(--green-card);
+      padding: 36px 28px 40px;
+    }
+
+    .body-text {
+      font-size: 12px;
+      font-weight: 300;
+      line-height: 1.85;
+      text-align: center;
+      color: var(--text-body);
+      margin-bottom: 1.4em;
+    }
+
+    .body-text:last-child { margin-bottom: 0; }
+
+    /* ───────────────────────────────────────
+       EVENT TITLE BLOCK
+    ─────────────────────────────────────── */
+    .event-block {
+      background: var(--green-mid);
+      padding: 40px 24px 44px;
+      text-align: center;
+    }
+    
+    .event-logo {
+      width: 85%;
+      max-width: 360px;
+      height: auto;
+      display: block;
+      margin: 0 auto;
+    }
+
+    /* ───────────────────────────────────────
+       SCHEDULE
+    ─────────────────────────────────────── */
+    .schedule-block {
+      background: var(--green-card);
+      padding: 36px 24px;
+      text-align: center;
+    }
+
+    .schedule-item {
+      margin-bottom: 20px;
+    }
+
+    .schedule-item:last-child { margin-bottom: 0; }
+
+    .schedule-label {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.22em;
+      color: var(--gold-light);
+      text-transform: uppercase;
+      margin-bottom: 3px;
+    }
+
+    .schedule-value {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.85rem;
+      font-weight: 300;
+      letter-spacing: 0.06em;
+      color: var(--text-body);
+    }
+
+    /* ───────────────────────────────────────
+       CLOSING SECTION
+    ─────────────────────────────────────── */
+    .closing-block {
+      background: var(--green-mid);
+      padding: 40px 24px 48px;
+      text-align: center;
+    }
+
+    .see-you {
+      font-size: clamp(2.5rem, 14vw, 6.25rem);
+      color: var(--gold-light);
+      line-height: 1.1;
+      text-shadow: 0 2px 14px rgba(0,0,0,0.4);
+    }
+
+    /* ───────────────────────────────────────
+       LOGO
+    ─────────────────────────────────────── */
+    .logo-wrap {
+      margin-top: 28px;
+    }
+    
+    .altis-logo {
+      width: 100px;
+      height: 100px;
+      object-fit: contain;
+      display: block;
+      margin: 0 auto;
+    }
+
+    /* SVG crest drawn inline – replica of the circular badge */
+    .crest-svg {
+      width: 100px;
+      height: 100px;
+      opacity: 0.92;
+    }
+
+    /* ───────────────────────────────────────
+       FADE-IN ANIMATION
+    ─────────────────────────────────────── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(22px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    .hero-content,
+    .body-section,
+    .event-block,
+    .schedule-block,
+    .closing-block {
+      animation: fadeUp 0.7s ease both;
+    }
+
+    .body-section   { animation-delay: 0.15s; }
+    .event-block    { animation-delay: 0.28s; }
+    .schedule-block { animation-delay: 0.40s; }
+    .closing-block  { animation-delay: 0.52s; }
+
+  </style>
+</head>
+<body>
+
+<div class="page">
+
+  <!-- ── HERO ── -->
+  <section class="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-content">
+      <span class="dear-label kapakana">Dear</span>
+      <h1 class="guest-name" id="guestName">Adeola</h1>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- ── BODY TEXT ── -->
+  <section class="body-section">
+    <p class="body-text">
+      It is with the greatest distinction and sincere pleasure that you are extended this invitation to an evening of rare significance. This occasion is not merely a gathering but a moment set apart, one reserved for reflection upon a journey marked by discipline, perseverance, and the quiet triumphs that only time may reveal. Those invited are so because their presence is regarded as meaningful, their witness valued, and their company esteemed.
+    </p>
+    <p class="body-text">
+      The evening shall serve as a deliberate pause, an opportunity to look upon the path that has shaped character and refined purpose. It is a night devoted to honoring growth earned through steadfast resolve, to acknowledging challenges met with dignity, and to celebrating transformation wrought through unwavering commitment. Such moments are not commonplace, and neither is the audience to whom they are entrusted.
+    </p>
+    <p class="body-text">
+      You are therefore invited to take part in this distinguished occasion, to share in an atmosphere of gratitude and remembrance, and to bear witness to a chapter worthy of commemoration. Your presence would lend the evening its proper measure of grace and significance, and it would be our privilege to welcome you into this carefully chosen company.
+    </p>
+    <p class="body-text">
+      We anticipate the honor of your attendance and look forward to an evening defined by elegance, reflection, and enduring meaning.
+    </p>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- ── EVENT TITLE ── -->
+  <section class="event-block">
+    <img src="dinner_logo.png" alt="The Grand Ascent – Timeless Elegance" class="event-logo" />
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- ── SCHEDULE ── -->
+  <section class="schedule-block">
+    <div class="schedule-item">
+      <div class="schedule-label">Green Carpet</div>
+      <div class="schedule-value">07:00PM</div>
+    </div>
+    <div class="schedule-item">
+      <div class="schedule-label">Main Event</div>
+      <div class="schedule-value">08:00PM</div>
+    </div>
+    <div class="schedule-item">
+      <div class="schedule-label">Venue</div>
+      <div class="schedule-value">Conference Hotel, GRA, Sagamu</div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- ── CLOSING ── -->
+  <section class="closing-block">
+    <div class="see-you kapakana">See You there</div>
+
+    <div class="logo-wrap">
+      <img src="altis_magnus.png" alt="Altis Magnus Logo" class="altis-logo" />
+    </div>
+  </section>
+
+</div><!-- end .page -->
+
+<script>
+  /**
+   * Reads the first URL path segment as the guest name.
+   * e.g. https://example.com/dammy  →  "Dammy"
+   * Falls back to "Adeola" if no name is found.
+   */
+  (function () {
+    const segments = window.location.pathname
+      .split('/')
+      .filter(Boolean);                    // remove empty strings
+
+    const raw = segments[0] || '';
+    if (!raw) return;                      // keep default
+
+    // Capitalise first letter, lowercase rest
+    const name = raw.charAt(0).toUpperCase() + raw.slice(1).toLowerCase();
+
+    document.getElementById('guestName').textContent = name;
+    document.title = `The Grand Ascent – Dear ${name}`;
+  })();
+</script>
+
+</body>
+</html>
